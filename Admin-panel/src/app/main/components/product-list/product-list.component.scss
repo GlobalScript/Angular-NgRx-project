@@ -1,0 +1,99 @@
+img {
+    height: 50px;
+    width: 50px;
+    cursor: pointer;
+    object-fit: contain;
+}
+
+td,
+th {
+    padding: 5px;
+    vertical-align: middle;
+    color: #ddd;
+}
+
+.prod-search {
+    position: relative;
+    padding-right: 45px;
+}
+
+.btn-clear {
+    margin: 0;
+    border-radius: 0;
+    position: absolute;
+    z-index: 10;
+    right: 0;
+    background-color: rgb(143, 143, 143);
+
+    &:hover {
+        background-color: rgb(76, 76, 76);
+        color: white;
+    }
+}
+
+.image-prod {
+    position: relative;
+}
+
+.spinner-border {
+    position: absolute;
+    top: 13px;
+    left: 13px;
+}
+
+.activites {
+    display: flex;
+    flex-direction: column;
+}
+
+.btn-edit {
+    border-radius: 5px;
+
+    &:hover {
+        color: white;
+        background-color: green;
+    }
+}
+
+.btn-delete {
+    border-radius: 5px;
+
+    &:hover {
+        color: white;
+        background-color: red;
+    }
+
+}
+
+.btn-text {
+    display: none;
+}
+
+.word {
+    display: none;
+}
+
+.selectColor {
+    background-color: #ddd;
+
+    th,
+    td {
+        color: black;
+    }
+}
+
+@media(min-width: 766px) {
+    .activites {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .word {
+        display: inline;
+    }
+
+    .symbol {
+        display: none;
+    }
+}

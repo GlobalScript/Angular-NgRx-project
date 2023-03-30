@@ -1,0 +1,18 @@
+<div class="modal-header">
+  <h4>Success!</h4>
+  <button type="button" class="btn-close" aria-describedby="modal-title"
+    (click)="modal.dismiss('Cross click')"></button>
+</div>
+<div class="card">
+  <div class="img-wrapper p-3">
+    <img class="img-prod" [src]="prod.image" alt="Card image cap">
+  </div>
+  <div class="prod-card-body">
+    <h5 class="card-title">{{prod.title}}</h5>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item"><b>Price</b> {{prod.price | currency}}</li>
+    <li class="list-group-item"><b>Discount</b> {{prod.discount}}</li>
+    <li class="list-group-item"><b>Category</b> {{prod.category}}</li>
+  </ul>
+</div>

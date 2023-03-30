@@ -1,0 +1,66 @@
+<div class="wrapper container d-flex justify-content-center">
+    <form [formGroup]="form" class="pb-3">
+        <h1>{{btnTitle}}</h1>
+        <div class="imgUp mb-3">
+            <div class="imagePreview ">
+                <img [src]="imageSrc" *ngIf="imageError">
+                <p class="px-2 py-3 error-message" *ngIf="!imageError">
+                    File is not an image. The maximum allowed size is 50KB</p>
+            </div>
+            <div class="label-field">
+                <label class="select-button">
+                    Select an image
+                    <input type="file" class="uploadFile img" value="Upload Photo" (change)="selectImage($event)">
+                </label>
+            </div>
+        </div>
+        <div class="form-group row mb-3">
+            <div class="form-group col-md-6">
+                <label for="title" class="text-light">Title</label>
+                <input type="text" class="form-control" id="title" placeholder="Title" formControlName="title"
+                    [ngClass]="{validInput: title?.valid,invalidInput: title?.invalid && (title?.dirty || title?.touched)}">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="price" class="text-light">Price</label>
+                <input type="number" class="form-control" id="price" placeholder="Price" formControlName="price"
+                    [ngClass]="{validInput: price?.valid,invalidInput: price?.invalid && (price?.dirty || price?.touched)}">
+            </div>
+        </div>
+        <div class="form-group row mb-3">
+            <div class="form-group col-md-6">
+                <label for="discount" class="text-light">Discount</label>
+                <input type="number" class="form-control" id="discount" placeholder="1" formControlName="discount"
+                    [ngClass]="{validInput: discount?.valid,invalidInput: discount?.invalid && (discount?.dirty || discount?.touched)}">
+            </div>
+            <div class="col-md-6">
+                <label for="category" class="col-sm-2 control-label text-light">Category</label>
+                <select class="form-control" id="category" name="category" formControlName="category"
+                    [ngClass]="{validInput: category?.valid,invalidInput: category?.invalid && (category?.dirty || category?.touched)}">
+
+                    <option value="" selected="selected"><span class="select-category">please select a category</span>
+                    </option>
+                    <option [value]="category.value" *ngFor="let category of categories | keyvalue">{{category.value}}
+                    </option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="mb-3">
+                <label for="formControlTextarea1" class="form-label text-light">Description</label>
+                <textarea class="form-control" id="formControlTextarea1" rows="2" formControlName="description"
+                    [ngClass]="{validInput: description?.valid, invalidInput: description?.invalid && (description?.dirty || description?.touched)}"></textarea>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="activations d-flex justify-content-between">
+                <div class="activatios-btn">
+                    <button (click)="location.back()" type="button">Close</button>
+                </div>
+                <div class="activatios-btn">
+                    <button [disabled]="form.invalid || disabSend" type="button"
+                        (click)="formSubmit()">{{btnTitle}}</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

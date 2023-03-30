@@ -1,0 +1,32 @@
+.remove-btn {
+    border-radius: 5px;
+    border: solid 1px #959595;
+    background-color: #f0ecec;
+
+    &:hover {
+        background-color: #faacac !important;
+        color: white;
+    }
+
+    i {
+        padding: 0 5px;
+    }
+}
+
+.remove {
+    display: none;
+}
+
+.preloader {
+    height: 70px;
+}
+
+.prod-card-body {
+    position: relative;
+}
+
+.spinner-border {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+}

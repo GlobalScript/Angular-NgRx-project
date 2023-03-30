@@ -1,0 +1,23 @@
+.card {
+    height: 350px;
+    width: 18rem;
+    margin: 30px auto;
+}
+
+.prod-card-body {
+    height: 70px;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+.img-wrapper {
+    cursor: pointer;
+}
+
+.img-prod {
+    height: 110px;
+    width: 150px;
+    display: block;
+    margin: 0 auto;
+    object-fit: contain;
+}

@@ -1,0 +1,47 @@
+<div class="search p-3">
+  <div class="input-group ">
+    <input class="form-control prod-search" type="text" placeholder="search" [(ngModel)]="inputSearch">
+    <button class="btn btn-clear" (click)="inputSearch = ''">
+      <i class="bi bi-x-lg"></i>
+    </button>
+  </div>
+</div>
+<table class="table m-0">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Avatar</th>
+      <th scope="col">Title</th>
+      <th scope="col"><span class="symbol">&#36;</span><span class="word">Price</span></th>
+      <th scope="col"><span class="symbol">&#37;</span><span class="word">Discount</span></th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let prod of allProd | async | searchProd: inputSearch: 'title'; index as i"
+      [ngClass]="{selectColor: (prod.id === mainService.selectProdId) || (prod.id === mainService.spinner)}">
+      <th scope="row" class="text-light">{{i+1}}</th>
+
+      <td class="image-prod">
+        <div class="spinner-border text-info" role="status" *ngIf="mainService.spinner === prod.id"></div>
+        <img [src]="prod.image" alt="avatar" (click)="openDetailModal(prod.id)">
+      </td>
+      <td>{{prod.title}}</td>
+      <td>{{prod.price | currency}}</td>
+      <td>{{prod.discount}}</td>
+      <td>
+        <div class="activites">
+          <div class="prod-btn">
+            <button class="btn-edit" (click)="editProduct(prod.id)" [disabled]="mainService.preloaderRemoveProd"><i
+                class="bi bi-pencil-square edit-icon"></i></button>
+          </div>
+          <div class="prod-btn">
+            <button class="btn-delete" (click)="deleteProduct(prod.id, prod.title)"
+              [disabled]="mainService.preloaderRemoveProd"><i class="bi bi-trash edit-icon"></i></button>
+          </div>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>

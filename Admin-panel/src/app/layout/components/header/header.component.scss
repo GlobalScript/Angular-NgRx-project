@@ -1,0 +1,29 @@
+header {
+    padding: 30px;
+    height: 100px;
+    background-color: black;
+}
+
+h3 {
+    font-size: 20px;
+}
+
+button {
+    border-radius: 10px;
+    text-transform: uppercase;
+    font-weight: 500;
+
+    &:hover {
+        background-color: skyblue;
+    }
+}
+
+@media(min-width: 768px) {
+    header {
+        height: 60px;
+    }
+
+    h3 {
+        font-size: 28px;
+    }
+}

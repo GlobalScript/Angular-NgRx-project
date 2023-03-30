@@ -1,0 +1,12 @@
+<app-header></app-header>
+<div class="wrapper">
+  <aside class="sidenav">
+    <a routerLink="/main/showing" routerLinkActive="active"><i class="bi bi-app"></i>Show</a>
+    <a routerLink="/main/products" routerLinkActive="active"><i class="bi bi-card-list"></i>Products</a>
+    <a routerLink="/main/create/create" routerLinkActive="active"><i class="bi bi-file-earmark-plus"></i>Create</a>
+    <a routerLink="/main/orders" routerLinkActive="active" *ngIf="role | roles"><i
+        class="bi bi-currency-dollar"></i>Orders</a>
+    <a routerLink="/main/roles" routerLinkActive="active" *ngIf="role | roles"><i class="bi bi-people"></i>Roles</a>
+  </aside>
+  <router-outlet></router-outlet>
+</div>

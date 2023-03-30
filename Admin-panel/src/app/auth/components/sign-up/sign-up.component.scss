@@ -1,0 +1,60 @@
+button {
+    border-radius: 10px;
+    text-transform: uppercase;
+    background-color: black;
+    color: white;
+
+    &:hover {
+        background-color: rgb(58, 57, 56);
+        color: white;
+    }
+
+    &[disabled] {
+        background-color: rgb(55, 49, 49);
+        color: black;
+    }
+}
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(58, 57, 56);
+    min-height: calc(100vh - 56px);
+}
+
+.form-wrapper {
+    position: relative;
+    width: 350px;
+    margin: 0 auto;
+}
+
+.spinner-border {
+    position: absolute;
+}
+
+.message-wrapper {
+    height: 10px;
+}
+
+.error-message {
+    color: red;
+}
+
+.validInput {
+    background-color: rgb(170, 203, 170);
+}
+
+.invalidInput {
+    background-color: rgb(212, 174, 174);
+}
+
+.sign-in {
+    text-transform: uppercase;
+    cursor: pointer;
+    color: skyblue;
+
+    &:hover {
+        color: blueviolet;
+    }
+}

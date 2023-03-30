@@ -1,0 +1,22 @@
+<div class="card-wrapper d-flex flex-wrap justify-content-center">
+
+    <div class="card m-3" style="width: 18rem;" *ngFor="let user of users | async" [appRoleColor]="user.role">
+        <div class="prod-card-body">
+            <div class="spinner-border text-info" role="status" *ngIf="mainService.spinner === user.id"></div>
+            <h5 class="card-title text-center p-3">{{user.firstname}} {{user.lastname}}</h5>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item"><b>Role</b> {{user.role | uppercase}}</li>
+            <li class="list-group-item"><b>Email</b> {{user.email}}</li>
+        </ul>
+        <div class="d-flex justify-content-around py-3" *ngIf="!mainService.preloaderRemoveProd">
+            <button type="button" class="btn btn-outline-secondary d-block" [disabled]="user.role | roles"
+                (click)="updateRole(roles.admin, user)">Admin</button>
+            <button type="button" class="remove-btn" [appRoleColor]="user.role" [ngClass]="{remove: user.role | roles}"
+                (click)="deleteUser(user.id, user.firstname, user.lastname)"><i class="bi bi-trash3"></i></button>
+            <button type="button" class="btn btn-outline-secondary d-block px-4" [disabled]="user.role | roles"
+                (click)="updateRole(roles.user, user)">User</button>
+        </div>
+        <div class="preloader" *ngIf="mainService.preloaderRemoveProd"></div>
+    </div>
+</div>

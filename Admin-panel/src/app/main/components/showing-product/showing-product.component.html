@@ -1,0 +1,35 @@
+<div class="prod-header d-flex align-items-center justify-content-around m-0">
+  <div class=" search-wrapper">
+    <input class="form-control search-input" type="text" placeholder="search by name" [(ngModel)]="inputSearch"
+      (input)="prodSearch()">
+    <button class="btn btn-clear" (click)="clearSearch()">
+      <i class="bi bi-x-lg"></i>
+    </button>
+  </div>
+  <div class="">
+    <select class="form-control" id="category" name="category" [(ngModel)]="selectValue" (change)="selectCategory()">
+      <option value="" selected="selected">{{'Please select a category' | uppercase}}
+      </option>
+      <option [value]="category.value" *ngFor="let category of categories | keyvalue">{{category.value | uppercase}}
+      </option>
+    </select>
+  </div>
+</div>
+<div class="prod-wrapper d-flex flex-wrap justify-content-center">
+  <div class="card m-3" style="width: 18rem;"
+    *ngFor="let prod of currentProds | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
+    <div class="img-wrapper p-3" (click)="openDetailModal(prod.id)">
+      <div class="spinner-border text-info" role="status" *ngIf="(mainService.spinner === prod.id)"></div>
+      <img class="img-prod" [src]="prod.image" alt="Card image cap">
+    </div>
+    <div class="prod-card-body">
+      <h5 class="card-title">{{prod.title}}</h5>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item"><b>Price</b> {{prod.price | currency}}</li>
+      <li class="list-group-item"><b>Discount</b> {{prod.discount}}</li>
+      <li class="list-group-item"><b>Category</b> {{prod.category}}</li>
+    </ul>
+  </div>
+  <ngb-pagination [(page)]="page" [pageSize]="pageSize" [collectionSize]="prodLength"></ngb-pagination>
+</div>

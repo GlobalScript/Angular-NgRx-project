@@ -1,0 +1,43 @@
+img {
+    height: 50px;
+    width: 50px;
+    cursor: pointer;
+    object-fit: contain;
+}
+
+td,
+th {
+    padding: 5px;
+    vertical-align: middle;
+    color: #ddd;
+}
+
+button {
+    border-radius: 10px;
+    text-transform: uppercase;
+}
+
+.prod-search {
+    position: relative;
+    padding-right: 45px;
+}
+
+.btn-clear {
+    margin: 0;
+    border-radius: 0;
+    position: absolute;
+    z-index: 10;
+    right: 0;
+    background-color: rgb(143, 143, 143);
+
+    &:hover {
+        background-color: rgb(76, 76, 76);
+        color: white;
+    }
+}
+
+.spinner-border {
+    margin: 0 15px;
+    height: 26px;
+    width: 26px;
+}

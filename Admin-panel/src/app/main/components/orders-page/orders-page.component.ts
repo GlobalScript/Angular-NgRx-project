@@ -35,6 +35,7 @@ export class OrdersPageComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit(): void {
+    this.mainService.cartChannel().subscribe(() => this.store.dispatch(allOrderAction()));
     this.store.dispatch(allOrderAction());
     this.ordersSub = this.orders.subscribe(data => {
       this.prodsSub = this.prods.subscribe(prods => {

@@ -20,7 +20,6 @@ exports.getProduct = (req, res) => {
 }
 
 exports.getProdByName = (req, res) => {
-  console.log(req.params.name)
   ProductModel
   .findOne({ title: req.params.name } )
   .then((prod) => res.status(200).json(prod))
@@ -47,3 +46,4 @@ exports.updateProduct = (req, res) => {
     .then((product) => res.json(product))
     .catch((error) => handleError(res, error));
 }
+

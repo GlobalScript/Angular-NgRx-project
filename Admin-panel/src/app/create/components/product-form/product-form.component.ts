@@ -1,13 +1,14 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { Location } from '@angular/common';
-import { Product } from '../../models/product';
-import { ImageTypes } from 'src/app/shared/enums/image-types';
-import { ProductCategories } from 'src/app/shared/enums/product-categories';
-import { CreatedProduct } from '../../models/created-product';
-import { Store } from '@ngrx/store';
-import { IAppState } from 'src/app/store/reducers/app.reducer';
-import { createProdAction, updateProdAction } from 'src/app/store/actions/product.action';
+import {Component, Input, OnInit} from '@angular/core';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {Location} from '@angular/common';
+import {Product} from '../../models/product';
+import {ImageTypes} from 'src/app/shared/enums/image-types';
+import {ProductCategories} from 'src/app/shared/enums/product-categories';
+import {CreatedProduct} from '../../models/created-product';
+import {Store} from '@ngrx/store';
+import {IAppState} from 'src/app/store/reducers/app.reducer';
+import {createProdAction, updateProdAction} from 'src/app/store/actions/product.action';
+import {compress} from "image-conversion";
 
 
 @Component({
@@ -28,8 +29,9 @@ export class ProductFormComponent implements OnInit {
 
   constructor(
     private store: Store<IAppState>,
-    public location: Location
-  ) { }
+    public location: Location,
+  ) {
+  }
 
   ngOnInit(): void {
     this.imageSrc = this.prod?.image;
@@ -63,39 +65,83 @@ export class ProductFormComponent implements OnInit {
     });
   }
 
-  get title() { return this.form.get('title') }
-  get price() { return this.form.get('price') }
-  get discount() { return this.form.get('discount') }
-  get category() { return this.form.get('category') }
-  get description() { return this.form.get('description') }
+  get title() {
+    return this.form.get('title')
+  }
+
+  get price() {
+    return this.form.get('price')
+  }
+
+  get discount() {
+    return this.form.get('discount')
+  }
+
+  get category() {
+    return this.form.get('category')
+  }
+
+  get description() {
+    return this.form.get('description')
+  }
 
   selectImage(event: Event) {
     const target = event.target as HTMLInputElement;
     const files = target.files as FileList;
     const file: File | null = files.item(0);
+
     if (!file) return;
-    if (file.size < 50000 && (file.type === ImageTypes.jpg || file.type === ImageTypes.png || file.type === ImageTypes.webp)) {
-      const reader: FileReader = new FileReader();
-      reader.readAsDataURL(file);
-      reader.onload = () => {
-        this.imageError = true;
-        this.disabSend = false;
-        this.imageSrc = reader.result as string;
-      }
+    if (file.type !== ImageTypes.jpg && file.type !== ImageTypes.png && file.type !== ImageTypes.webp) {
+      this.imageError = false;
+      this.disabSend = true;
       return;
     }
-    this.imageError = false;
-    this.disabSend = true;
+    this.compressImage(file);
+  }
+
+  private imageDataURL(image: File | Blob) {
+    const reader = new FileReader();
+    reader.readAsDataURL(image);
+    reader.onload = () => {
+      this.imageError = true;
+      this.disabSend = false;
+      this.imageSrc = reader.result as string;
+    };
+  }
+
+  private compressImage(file: File, quality: number = 1) {
+    if ((file.size / 1024) <= 50) {
+      this.imageDataURL(file);
+      return;
+    }
+    compress(file, {
+      quality,
+      width: 900,
+      height: 600,
+      orientation: 1,
+    })
+      .then(compressedImage => {
+        const imageSize = compressedImage.size / 1204;
+        let step = imageSize <= 1024 ? 0.05 : 0.1;
+        if (imageSize <= 50) {
+          this.imageDataURL(compressedImage);
+          return;
+        } else {
+          this.compressImage(file, quality - step);
+        }
+      })
+      .catch(error => {
+        console.error('Error compressing image:', error);
+      });
   }
 
   formSubmit() {
-    const prodData: CreatedProduct = { ...this.form.value, image: this.imageSrc };
+    const prodData: CreatedProduct = {...this.form.value, image: this.imageSrc};
     if (this.prod?.id) {
-      this.store.dispatch(updateProdAction({ id: this.prod.id, prod: prodData }));
+      this.store.dispatch(updateProdAction({id: this.prod.id, prod: prodData}));
       this.form.disable();
-    }
-    else {
-      this.store.dispatch(createProdAction({ prod: prodData }));
+    } else {
+      this.store.dispatch(createProdAction({prod: prodData}));
       this.imageSrc = '';
       this.disabSend = true;
       this.form.reset();

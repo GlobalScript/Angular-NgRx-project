@@ -6,17 +6,17 @@ const {
   updateProduct,
   getProduct,
   getProdByName
-} = require( '../../app/controllers/ProductController.js');
+} = require( '../../src/controllers/ProductController.js');
 const {
   getCart,
   allCart,
   addFirstCart,
   addNextCart,
   deleteCart
-} = require( '../../app/controllers/CartController.js');
-const {registration, login} = require('../../app/controllers/AuthController.js');
-const { getUsers, userRole, removeUser } = require('../../app/controllers/UserController.js');
-const authMiddleware = require('../../app/middleware/authMiddleware.js');
+} = require( '../../src/controllers/CartController.js');
+const {registration, login} = require('../../src/controllers/AuthController.js');
+const { getUsers, userRole, removeUser } = require('../../src/controllers/UserController.js');
+const authMiddleware = require('../../src/middleware/authMiddleware.js');
 
 const router = express.Router();
 

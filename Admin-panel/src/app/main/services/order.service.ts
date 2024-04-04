@@ -1,22 +1,23 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable, take } from 'rxjs';
-import { OrderData } from '../models/order-data';
-import { Order } from '../models/order';
-import { environment } from 'src/environments/environment';
-import { Store } from '@ngrx/store';
-import { IAppState } from 'src/app/store/reducers/app.reducer';
-import { allProdSelector } from 'src/app/store/selectors/product.selectors';
-import { Product } from 'src/app/create/models/product';
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {Observable, take} from 'rxjs';
+import {OrderData} from '../models/order-data';
+import {Order} from '../models/order';
+import {environment} from 'src/environments/environment';
+import {Store} from '@ngrx/store';
+import {IAppState} from 'src/app/store/reducers/app.reducer';
+import {allProdSelector} from 'src/app/store/selectors/product.selectors';
+import {Product} from 'src/app/create/models/product';
 
 @Injectable({
   providedIn: 'root'
 })
 export class OrderService {
 
-  allProd: Observable<Product[]> = this.store.select(allProdSelector).pipe(take(2))
+  allProd: Observable<Product[]> = this.store.select(allProdSelector).pipe(take(2));
 
-  constructor(private http: HttpClient, private store: Store<IAppState>) { }
+  constructor(private http: HttpClient, private store: Store<IAppState>) {
+  }
 
 
   getOrderById(id: string): Observable<OrderData> {
@@ -54,7 +55,7 @@ export class OrderService {
   availableProdCart(products: Product[], order: Order): Product[] {
     return Object.keys(order.cart).reduce((acc, item) => {
       const prod: Product | undefined = (this.reindexingProducts(products)[item])
-      if (prod) acc.push({ ...prod, count: order.cart[item] })
+      if (prod) acc.push({...prod, count: order.cart[item]})
       return acc
     }, Array())
   }

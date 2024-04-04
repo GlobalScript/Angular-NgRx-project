@@ -1,14 +1,15 @@
-import { Component, OnInit } from '@angular/core';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { DeleteWarningComponent } from '../delete-warning/delete-warning.component';
-import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
-import { IAppState } from 'src/app/store/reducers/app.reducer';
-import { allUserSelector } from 'src/app/store/selectors/user.selectors';
-import { allUserAction, updateRoleAction } from 'src/app/store/actions/user.action';
-import { User } from 'src/app/auth/models/authUser';
-import { Roles } from 'src/app/shared/enums/roles';
-import { MainService } from '../../services/main.service';
+import {Component, OnInit} from '@angular/core';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {DeleteWarningComponent} from '../delete-warning/delete-warning.component';
+import {Store} from '@ngrx/store';
+import {Observable} from 'rxjs';
+import {IAppState} from 'src/app/store/reducers/app.reducer';
+import {allUserSelector} from 'src/app/store/selectors/user.selectors';
+import {allUserAction, updateRoleAction} from 'src/app/store/actions/user.action';
+import {User} from 'src/app/auth/models/authUser';
+import {Roles} from 'src/app/shared/enums/roles';
+import {MainService} from '../../services/main.service';
+import {UserService} from "../../services/user.service";
 
 @Component({
   selector: 'app-roles',
@@ -20,19 +21,22 @@ export class RolesComponent implements OnInit {
   users: Observable<User[]> = this.store.select(allUserSelector)
   roles = Roles;
 
-  constructor(private store: Store<IAppState>,
+  constructor(
+    private store: Store<IAppState>,
     public modal: NgbModal,
-    public mainService: MainService
-  ) { }
+    public mainService: MainService,
+  ) {
+  }
 
   ngOnInit(): void {
-    this.store.dispatch(allUserAction())
+    this.mainService.userChannel().subscribe(() => this.store.dispatch(allUserAction()));
+    this.store.dispatch(allUserAction());
   }
 
   updateRole(role: string, user: User) {
     this.mainService.spinner = user.id;
-    const updateUser: User = { ...user, role };
-    this.store.dispatch(updateRoleAction(updateRoleAction({ user: updateUser })));
+    const updateUser: User = {...user, role};
+    this.store.dispatch(updateRoleAction(updateRoleAction({user: updateUser})));
   }
 
   deleteUser(id: string, firstname: string, lastname: string) {
@@ -41,7 +45,7 @@ export class RolesComponent implements OnInit {
       backdrop: 'static',
       keyboard: false
     });
-    modalRef.componentInstance.data = { id, title, user: true };
+    modalRef.componentInstance.data = {id, title, user: true};
   }
 
 }

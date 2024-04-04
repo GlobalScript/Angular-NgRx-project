@@ -4,8 +4,8 @@
         <div class="imgUp mb-3">
             <div class="imagePreview ">
                 <img [src]="imageSrc" *ngIf="imageError">
-                <p class="px-2 py-3 error-message" *ngIf="!imageError">
-                    File is not an image. The maximum allowed size is 50KB</p>
+                <p class="px-2 py-3 error-message text-center" *ngIf="!imageError">
+                  Select a file that is in jpeg, png, webp format.</p>
             </div>
             <div class="label-field">
                 <label class="select-button">

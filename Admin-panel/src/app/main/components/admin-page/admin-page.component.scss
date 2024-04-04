@@ -1,46 +1,46 @@
 a {
-    padding: 6px 8px 6px 16px;
-    text-decoration: none;
-    font-size: 18px;
-    font-weight: 500;
-    color: rgb(228, 215, 215);
-    display: block;
-
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 500;
+  color: #e4d7d7;
+  display: block;
 }
 
 i {
-    padding: 2px 4px;
-    border: 2px solid #ddd;
-    border-radius: 5px;
-    color: rgb(69, 58, 58);
-    margin-right: 5px;
+  padding: 2px 4px;
+  border: 2px solid #495057;
+  border-radius: 5px;
+  color: #3c3b3a;
+  margin-right: 5px;
 }
 
 .wrapper {
-    min-height: calc(100vh - 116px);
-    position: relative;
-    padding-left: 150px;
-    background-color: rgb(58, 57, 56);
+  min-height: calc(100vh - 116px);
+  position: relative;
+  padding-left: 150px;
+  background-color: #3a3938;
 }
 
 .sidenav {
-    width: 150px;
-    position: absolute;
-    left: 0;
-    padding: 0 5px;
-    border-right: 1px solid #484141;
-    background-color: #6c6b6b;
-    overflow-x: hidden;
-    padding-top: 20px;
-    height: 100%;
-
-    .active {
-        border: 2px solid #ddd;
-        border-radius: 5px;
-        color: white;
-    }
+  width: 150px;
+  position: absolute;
+  left: 0;
+  padding: 0 5px;
+  border-right: 1px solid #484141;
+  background-color: #6c757d;
+  overflow-x: hidden;
+  padding-top: 20px;
+  height: 100%;
 }
 
-.active i {
-    background-color: white;
+.sidenav .active {
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  color: #f8f9fa;
+}
+
+.sidenav .active i {
+  background-color: #f8f9fa;
+  color: #343a40;
 }

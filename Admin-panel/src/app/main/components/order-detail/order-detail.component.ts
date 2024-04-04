@@ -31,13 +31,13 @@ export class OrderDetailComponent implements OnInit, OnDestroy {
     this.dataSub = this.store.select(orderDataSelector).subscribe(data => this.data = data)
   }
 
-  deleteProduct(id: string | undefined, title: string | undefined) {
-    if (!id || !title) return;
+  deleteProduct(id: string | undefined,  firstname: string | undefined, lastname: string | undefined) {
+    if (!id || !lastname || !firstname) return;
     const modalRef = this.modal.open(DeleteWarningComponent, {
       backdrop: 'static',
       keyboard: false
     });
-    modalRef.componentInstance.data = { id, title, order: true };
+    modalRef.componentInstance.data = { id, title: `${firstname} ${lastname}`, order: true };
     this.router.navigate(['/main/orders'])
   }
 

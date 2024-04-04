@@ -1,4 +1,5 @@
 const CartModel = require( "../models/CartModel.js");
+const App = require("../../index");
 
 const handleError = (res, error) => {
     res.status(500).send(error.message);
@@ -8,6 +9,7 @@ const handleError = (res, error) => {
       new CartModel( req.body )
           .save()
           .then((cart) =>{
+              if(cart?.user_buy === 'custom') App.cartNotification();
                 res.status(200).json(cart);
           }) 
             .catch((error) => handleError(res, error));
@@ -17,7 +19,10 @@ const handleError = (res, error) => {
             if(req.body.cart_id){
           CartModel
             .findByIdAndUpdate(req.body.cart_id, req.body, { new: true })
-            .then((cart) => res.json(cart))
+            .then((cart) => {
+                res.json(cart);
+                if(cart?.user_buy === 'custom') App.cartNotification();
+            })
             .catch((error) => handleError(res, error));
             }
             else return res.status(200).json({message: 'error when adding the product on the server'});

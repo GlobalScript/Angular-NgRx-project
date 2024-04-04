@@ -1,36 +1,36 @@
 <div class="order-wrapper d-flex flex-column align-items-center p-3">
-    <div class="order-header">
-        <h3 class="text-center text-light">{{data?.order?.firstname}} {{data?.order?.lastname}}</h3>
-    </div>
-    <div class="order-info d-flex justify-content-center">
-        <h4 class="p-3 text-light">Phone {{data?.order?.phone | phone}}</h4>
-        <h4 class="p-3 text-light">Total Price {{data?.prods| total | currency}}</h4>
-    </div>
-    <div class="order-body">
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item d-flex" *ngFor="let prod of data?.prods">
-                <div class="">
-                    <img class="img-prod" [src]="prod.image" alt="Card image cap">
-                </div>
-                <div class="">
-                    <div class="">
-                        <b>Price</b> {{prod.price | currency}}
-                        <b>Quantity</b> {{prod.count}}
-                    </div>
-                    <div class="">
-                        {{prod.title}}
-                    </div>
-                </div>
-            </li>
-        </ul>
-        <div class="d-flex activites justify-content-between p-4">
-            <div class="">
-                <button type="button" class="btn btn-outline-secondary"
-                    (click)="deleteProduct(data?.order?.id, data?.order?.phone)">Delete</button>
-            </div>
-            <div class="">
-                <button type="button" class="btn btn-outline-secondary px-3" routerLink="/main/orders">Close</button>
-            </div>
+  <div class="order-header">
+    <h3 class="text-center text-light">{{data?.order?.firstname}} {{data?.order?.lastname}}</h3>
+  </div>
+  <div class="order-info d-flex justify-content-between flex-wrap p-3">
+    <h4 class="text-light">Phone: {{data?.order?.phone | phone}}</h4>
+    <h4 class="text-light">Total Price: {{data?.prods | total | currency}}</h4>
+  </div>
+  <div class="order-body w-100">
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item d-flex align-items-center" *ngFor="let prod of data?.prods">
+        <div class="prod-image-wrapper">
+          <img class="img-prod" [src]="prod.image" alt="Product image">
         </div>
+        <div class="prod-details ms-3">
+          <div>
+            <b>Price:</b> {{prod.price | currency}}
+            <b>Quantity:</b> {{prod.count}}
+          </div>
+          <div class="prod-title">
+            {{prod.title}}
+          </div>
+        </div>
+      </li>
+    </ul>
+    <div class="d-flex justify-content-between p-4 mt-3">
+      <button type="button" class="btn btn-danger"
+              (click)="deleteProduct(data?.order?.id,  data?.order?.firstname, data?.order?.lastname)">
+        Delete
+      </button>
+      <button type="button" class="btn btn-secondary" routerLink="/main/orders">
+        Close
+      </button>
     </div>
+  </div>
 </div>

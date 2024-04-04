@@ -1,29 +1,24 @@
 <div class="search p-3">
-  <div class="input-group ">
+  <div class="input-group">
     <input class="form-control prod-search" type="text" placeholder="search phone" [(ngModel)]="inputSearch">
     <button class="btn btn-clear" (click)="inputSearch = ''">
       <i class="bi bi-x-lg"></i>
     </button>
   </div>
 </div>
-<table class="table m-0">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Phone</th>
-      <th scope="col">Name</th>
-      <th scope="col"></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let order of availableOrders | searchOrder: inputSearch: 'phone'; index as i">
-      <th scope="row" class="text-light">{{i+1}}</th>
-      <td>{{order.phone | phone}}</td>
-      <td>{{order.firstname}}</td>
-      <td><button type="button" (click)="openDetailOrder(order.id)" [disabled]="mainService.preloaderRemoveProd"
-        *ngIf="mainService.spinner !== order.id">Open</button>
+
+<ul class="order-list">
+  <li class="order-item" *ngFor="let order of availableOrders | searchOrder: inputSearch: 'phone'; index as i">
+    <div class="order-header">
+      <span class="order-index">{{i + 1}}</span>
+      <span class="order-phone">{{order.phone | phone}}</span>
+      <span class="order-name">{{order.firstname}}</span>
+      <div class="order-open">
+        <button type="button" (click)="openDetailOrder(order.id)" [disabled]="mainService.spinner === order.id">
+          Open
+        </button>
         <div class="spinner-border text-info" role="status" *ngIf="mainService.spinner === order.id"></div>
-      </td>
-    </tr>
-  </tbody>
-</table>
+      </div>
+    </div>
+  </li>
+</ul>

@@ -75,6 +75,12 @@ export class ShowingProductComponent implements OnInit, OnDestroy {
     })
   }
 
+  onPageChange(page: number): void {
+    if (page) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }
+
   ngOnDestroy(): void {
     this.allProdSub.unsubscribe();
     if (this.prodByIdSub) this.prodByIdSub.unsubscribe()

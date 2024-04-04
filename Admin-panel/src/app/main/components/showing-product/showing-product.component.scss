@@ -1,103 +1,99 @@
 ngb-pagination {
-    position: absolute;
-    bottom: 10px;
-    display: none;
-}
-
-button {
-    border-radius: 10px;
-    text-transform: uppercase;
-    font-weight: 500;
-    background-color: #818181;
-    border-color: #979797;
-
-    &:hover {
-        background-color: #414141;
-    }
-
-    a {
-        text-decoration: none;
-        color: #ddd;
-    }
+  position: absolute;
+  bottom: 10px;
 }
 
 select {
-    text-align: center;
-    font-weight: 500;
-    color: #8a8787;
+  text-align: center;
+  font-weight: 500;
+  color: #ddd;
+  background-color: #3a3938;
+  border-color: #484141;
 
-    option {
-        font-weight: 500;
-        color: #8a8787;
-    }
+  option {
+    font-weight: 500;
+    color: #ddd;
+    background-color: #3a3938;
+  }
 }
 
 .prod-header {
-    flex-direction: column;
-    height: 100px;
-    background-color: #858585;
+  flex-direction: column;
+  height: 100px;
+  background-color: #484141;
 }
 
 .prod-wrapper {
-    padding: 10px 10px 80px 10px;
-    min-height: calc(100vh - 180px);
+  padding: 10px 10px 80px 10px;
+  min-height: calc(100vh - 180px);
+  background-color: #3a3938;
 }
 
 .search-wrapper {
-    position: relative;
+  position: relative;
 }
 
 .search-input {
-    padding-right: 35px;
+  padding-right: 35px;
+  background-color: #3a3938;
+  color: #ddd;
+  border-color: #484141;
 }
 
 .btn-clear {
+  position: absolute;
+  right: 0;
+  top: 0;
+  border: 1px solid #ddd;
+  background-color: #484141;
+  color: #ddd;
 
-    position: absolute;
-    right: 0;
-    top: 0;
-    border: 1px solid #ddd;
-
-    &:hover {
-        background-color: black;
-        color: white;
-    }
+  &:hover {
+    background-color: #000;
+    color: #fff;
+  }
 }
 
 .card {
-    height: 350px;
+  height: 350px;
+  padding-top: 5px;
+  background-color: #484141;
+  color: #ddd;
+  border: 1px solid  #487171;
 }
 
 .prod-card-body {
-    height: 70px;
-    padding: 10px 20px;
-    text-align: center;
+  height: 70px;
+  padding: 10px 20px;
+  text-align: center;
+  background-color: #3a3938;
+  color: #ddd;
 }
 
 .img-wrapper {
-    position: relative;
-    cursor: pointer;
+  border-radius: 5px;
+  background-color: white;
+  position: relative;
+  cursor: pointer;
 }
 
 .spinner-border {
-    position: absolute;
+  position: absolute;
+  border-color: #00bfff;
 }
 
 .img-prod {
-    height: 110px;
-    width: 150px;
-    display: block;
-    margin: 0 auto;
-    object-fit: contain;
+  height: 110px;
+  width: 150px;
+  display: block;
+  margin: 0 auto;
+  object-fit: contain;
+  background-color: white;
 }
 
 @media(min-width: 768px) {
-    ngb-pagination {
-        display: block;
-    }
-
-    .prod-header {
-        flex-direction: row;
-        height: 60px;
-    }
+  .prod-header {
+    flex-direction: row;
+    height: 60px;
+  }
 }

@@ -1,6 +1,29 @@
-img {
-    display: block;
-    height: 150px;
-    object-fit: contain;
-    margin: 0 auto;
+.modal-dialog {
+  max-width: 90%;
+  width: auto;
+}
+
+.modal-body {
+  max-height: 60vh;
+  overflow-y: auto;
+}
+
+.modal-title {
+  font-size: 1.5rem;
+}
+
+.image img {
+  height: 30vh;
+  object-fit: contain;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .modal-dialog {
+    max-width: 95%;
+  }
+
+  .modal-title {
+    font-size: 1.25rem;
+  }
 }

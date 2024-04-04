@@ -1,7 +1,7 @@
 <div class="prod-header d-flex align-items-center justify-content-around m-0">
   <div class=" search-wrapper">
     <input class="form-control search-input" type="text" placeholder="search by name" [(ngModel)]="inputSearch"
-      (input)="prodSearch()">
+           (input)="prodSearch()">
     <button class="btn btn-clear" (click)="clearSearch()">
       <i class="bi bi-x-lg"></i>
     </button>
@@ -17,7 +17,7 @@
 </div>
 <div class="prod-wrapper d-flex flex-wrap justify-content-center">
   <div class="card m-3" style="width: 18rem;"
-    *ngFor="let prod of currentProds | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
+       *ngFor="let prod of currentProds | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
     <div class="img-wrapper p-3" (click)="openDetailModal(prod.id)">
       <div class="spinner-border text-info" role="status" *ngIf="(mainService.spinner === prod.id)"></div>
       <img class="img-prod" [src]="prod.image" alt="Card image cap">
@@ -31,5 +31,14 @@
       <li class="list-group-item"><b>Category</b> {{prod.category}}</li>
     </ul>
   </div>
-  <ngb-pagination [(page)]="page" [pageSize]="pageSize" [collectionSize]="prodLength"></ngb-pagination>
+  <ngb-pagination [(page)]="page"
+                  [pageSize]="pageSize"
+                  [collectionSize]="prodLength"
+                  [maxSize]="8"
+                  [rotate]="true"
+                  [ellipses]="false"
+                  size="sm"
+                  (pageChange)="onPageChange($event)"
+  >
+  </ngb-pagination>
 </div>

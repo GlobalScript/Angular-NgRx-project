@@ -1,7 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="be79add8-a7db-427e-a185-4462507435c3" name="Changes" comment="" />
+    <list default="true" id="be79add8-a7db-427e-a185-4462507435c3" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/API/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/src/routes/api.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Admin-panel/.firebase/hosting.ZGlzdFxkYXNoYm9hcmQ.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Admin-panel/.firebase/hosting.ZGlzdFxkYXNoYm9hcmQ.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Admin-panel/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/Admin-panel/angular.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Admin-panel/src/app/layout/components/footer/footer.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Admin-panel/src/app/layout/components/footer/footer.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Admin-panel/src/app/layout/components/footer/footer.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/Admin-panel/src/app/layout/components/footer/footer.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Admin-panel/src/app/layout/components/header/header.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/Admin-panel/src/app/layout/components/header/header.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Admin-panel/src/app/main/components/admin-page/admin-page.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/Admin-panel/src/app/main/components/admin-page/admin-page.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Admin-panel/src/app/main/components/order-detail/order-detail.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Admin-panel/src/app/main/components/order-detail/order-detail.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Admin-panel/src/app/main/components/order-detail/order-detail.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/Admin-panel/src/app/main/components/order-detail/order-detail.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Admin-panel/src/app/main/components/order-detail/order-detail.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Admin-panel/src/app/main/components/order-detail/order-detail.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Admin-panel/src/app/main/components/orders-page/orders-page.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Admin-panel/src/app/main/components/orders-page/orders-page.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Admin-panel/src/app/main/components/orders-page/orders-page.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/Admin-panel/src/app/main/components/orders-page/orders-page.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Admin-panel/src/app/main/components/product-detail/product-detail.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Admin-panel/src/app/main/components/product-detail/product-detail.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Admin-panel/src/app/main/components/product-detail/product-detail.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/Admin-panel/src/app/main/components/product-detail/product-detail.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Admin-panel/src/app/main/components/product-list/product-list.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Admin-panel/src/app/main/components/product-list/product-list.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Admin-panel/src/app/main/components/product-list/product-list.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/Admin-panel/src/app/main/components/product-list/product-list.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Admin-panel/src/app/main/components/showing-product/showing-product.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Admin-panel/src/app/main/components/showing-product/showing-product.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Admin-panel/src/app/main/components/showing-product/showing-product.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/Admin-panel/src/app/main/components/showing-product/showing-product.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Admin-panel/src/app/main/components/showing-product/showing-product.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Admin-panel/src/app/main/components/showing-product/showing-product.component.ts" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -19,18 +41,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/My project/Export Projects/NgRx-project",
-    "nodejs_package_manager_path": "npm",
-    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2022.2\\plugins\\JavaScriptLanguage\\jsLanguageServicesImpl\\external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/My project/Export Projects/NgRx-project&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;D:\\My project\\Export Projects\\NgRx-project\\Admin-panel\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\My project\Export Projects\NgRx-project" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -45,6 +73,23 @@
       <workItem from="1712076085050" duration="14346000" />
       <workItem from="1712091289384" duration="2661000" />
       <workItem from="1712148877973" duration="6167000" />
+      <workItem from="1712236376514" duration="9896000" />
+      <workItem from="1712249662578" duration="3704000" />
+      <workItem from="1712254245210" duration="1398000" />
+      <workItem from="1712321375199" duration="14000" />
+      <workItem from="1712325684067" duration="994000" />
+      <workItem from="1712326722571" duration="1950000" />
+      <workItem from="1712422523021" duration="4202000" />
+      <workItem from="1712486396167" duration="6769000" />
+      <workItem from="1712493777546" duration="4774000" />
+      <workItem from="1712592311751" duration="12806000" />
+      <workItem from="1712664503755" duration="2503000" />
+      <workItem from="1712934335473" duration="9304000" />
+      <workItem from="1713021750075" duration="5549000" />
+      <workItem from="1713029492491" duration="20000" />
+      <workItem from="1723728375406" duration="7271000" />
+      <workItem from="1724765301253" duration="12682000" />
+      <workItem from="1724853865830" duration="2063000" />
     </task>
     <servers />
   </component>

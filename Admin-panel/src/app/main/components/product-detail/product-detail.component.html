@@ -1,23 +1,47 @@
+<!--<div class="modal-header">-->
+<!--    <h4>{{prod.title}}</h4>-->
+<!--    <button type="button" class="btn-close" aria-describedby="modal-title"-->
+<!--        (click)="modalActive.dismiss('Cross click')"></button>-->
+<!--</div>-->
+<!--<div class="image p-3">-->
+<!--    <img [src]="prod.image" alt="avatar">-->
+<!--</div>-->
+<!--<div class="modal-body">-->
+<!--    <h6>Price {{prod.price | currency}}</h6>-->
+<!--    <h6>Discount {{prod.discount}}</h6>-->
+<!--    <h6>Category {{prod.category}}</h6>-->
+<!--    <hr>-->
+<!--    <p>-->
+<!--        {{prod.description}}-->
+<!--    </p>-->
+<!--</div>-->
+<!--<hr>-->
+<!--<div class="d-flex justify-content-around py-3">-->
+<!--    <button type="button" class="btn btn-outline-secondary d-block"-->
+<!--        (click)="deleteProduct(prod.id, prod.title)">Delete</button>-->
+<!--    <button type="button" class="btn btn-outline-secondary d-block px-4" (click)="updateProduct(prod.id)">Edit</button>-->
+<!--</div>-->
+
+<!-- Modal Header -->
 <div class="modal-header">
-    <h4>{{prod.title}}</h4>
-    <button type="button" class="btn-close" aria-describedby="modal-title"
-        (click)="modalActive.dismiss('Cross click')"></button>
+  <h4 class="modal-title">{{prod.title}}</h4>
+  <button type="button" class="btn-close" aria-label="Close" (click)="modalActive.dismiss('Cross click')"></button>
 </div>
-<div class="image p-3">
-    <img [src]="prod.image" alt="avatar">
-</div>
+
+<!-- Modal Body -->
 <div class="modal-body">
-    <h6>Price {{prod.price | currency}}</h6>
-    <h6>Discount {{prod.discount}}</h6>
-    <h6>Category {{prod.category}}</h6>
-    <hr>
-    <p>
-        {{prod.description}}
-    </p>
+  <div class="image mb-3 text-center">
+    <img [src]="prod.image" alt="Product Image" class="img-fluid">
+  </div>
+  <h6>Price: {{prod.price | currency}}</h6>
+  <h6>Discount: {{prod.discount}}</h6>
+  <h6>Category: {{prod.category}}</h6>
+  <hr>
+  <p>{{prod.description}}</p>
 </div>
-<hr>
-<div class="d-flex justify-content-around py-3">
-    <button type="button" class="btn btn-outline-secondary d-block"
-        (click)="deleteProduct(prod.id, prod.title)">Delete</button>
-    <button type="button" class="btn btn-outline-secondary d-block px-4" (click)="updateProduct(prod.id)">Edit</button>
+
+<!-- Modal Footer -->
+<div class="modal-footer d-flex justify-content-between">
+  <button type="button" class="btn btn-outline-danger" (click)="deleteProduct(prod.id, prod.title)">Delete</button>
+  <button type="button" class="btn btn-outline-secondary" (click)="updateProduct(prod.id)">Edit</button>
 </div>

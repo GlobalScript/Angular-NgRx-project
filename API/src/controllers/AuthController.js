@@ -1,6 +1,7 @@
 const UserModel = require("../models/UserModel.js");
 const bcrypt = require('bcrypt');
 const  jwt = require("jsonwebtoken");
+const App = require("../../index");
 
     const handleError = (res, error) => {
         res.status(500).send(error.message);
@@ -27,10 +28,10 @@ const  jwt = require("jsonwebtoken");
                 if(email && password){
                     const hashPassword = bcrypt.hashSync(password, 10);
                     new UserModel({email, password: hashPassword, lastname, firstname})
-                    .save();
+                    .save().then(() => App.userNotification());
                     return res.status(200).json({message:'registration successfully'});
                 }
-                else return res.status(400).json({message: 'username or passoword is empty'});
+                else return res.status(400).json({message: 'username or password is empty'});
             })
             .catch((error) => handleError(res, error));
     };
@@ -52,4 +53,3 @@ const  jwt = require("jsonwebtoken");
             .catch((error) => handleError(res, error));
     };
 
-    
